@@ -11,6 +11,28 @@ CV <- function(x)
       return(x_std/avg)
 }
 
+z_normalize <- function(x)
+{
+	  mean_subtracted = x - mean(x)
+	  x_std = sd(x)	
+      return(mean_subtracted/x_std)
+}
+
+## Function to normalize a dataframe whose first column is feature_id
+
+z_normalize_feat_df <- function(df=NULL)
+{
+	data = df[ , 2:dim(df)[2] ]
+	data_z = apply( data, 2, function( x ){
+		mean_subtracted = x - mean(x)
+	  	x_std = sd(x)	
+      return(mean_subtracted/x_std)	
+	} )
+
+	df_z = data.frame( feature_name = df[,1], data_z )
+}
+
+
 correlated_data_example = function()
 {
 	df = data.frame( a = sort( sample(1:50, 20,replace=T ) ), b= sort( sample(1:50,20,replace=T ) ), c = sort( sample(1:50,20,replace=T ), decreasing = T ), d = sample(1:50,20,replace=T ), e = sample(1:50,20,replace=T ), res = sort( sample(1:100, 20,replace=T ) ) )

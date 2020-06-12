@@ -1,3 +1,11 @@
+vector_to_color_map = function( vec = NULL )
+{
+    vec_uniq = unique( vec )
+    return(sample(length(colors()), length(vec_uniq), replace=F))
+}
+
+
+
 ## ----------------------------------------------------------------- ##
 ##      Overrides lolliplot function from track-viewer package   
 ##      Only does it better 

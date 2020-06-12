@@ -517,7 +517,7 @@ alteration_remapper = function( alterations = NULL )
 			remapped_alterations = append( remapped_alterations , "T->A" );	
 		}
 		else{
-			remapped_alterations = append( remapped_alterations , "Unrecognized Alteration" );
+			remapped_alterations = append( remapped_alterations , "SV" );
 		}
 	}
 	
